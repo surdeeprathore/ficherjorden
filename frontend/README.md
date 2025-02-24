@@ -1,8 +1,25 @@
-# React + Vite
+Ride Booking System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A ride-booking system built with React.js for the frontend and Firebase for authentication, utilizing Google Maps APIs for location-based services.
 
-Currently, two official plugins are available:
+Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+User authentication (Firebase)
+
+Location search and autocomplete (Google Maps API)
+
+Ride fare estimation
+
+Live driver tracking
+
+Real-time ride status updates using Socket.io
+
+Tech Stack
+
+Frontend: React.js, Bootstrap for styling
+
+Backend: Firebase (Authentication, Database)
+
+Real-time Communication: Socket.io
+
+APIs Used: Google Maps API
