@@ -59,123 +59,114 @@ const CaptainSignup = () => {
 
   }
   return (
-    <div className='py-5 px-5 h-screen flex flex-col justify-between'>
-      <div>
-        <img className='w-20 mb-3' src="https://www.svgrepo.com/show/505031/uber-driver.svg" alt="" />
+    
+        <div className="h-screen flex items-center justify-center bg-cover bg-center bg-[url('https://www.trioangle.com/blog/wp-content/uploads/2024/06/Taxi-Banner-cover.png')]">
+          <div className="bg-white p-7 rounded-lg shadow-lg max-w-md w-full mx-4">
+            <div className="flex flex-col items-center">
+            </div>
+    
+            <form onSubmit={submitHandler}>
+              <h3 className="text-lg font-medium mb-2">Enter your name</h3>
+              <div className="flex gap-4 mb-4">
+                <input
+                  required
+                  className="bg-gray-100 w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base"
+                  type="text"
+                  placeholder="First name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+                <input
+                  required
+                  className="bg-gray-100 w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base"
+                  type="text"
+                  placeholder="Last name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
+    
+              <h3 className="text-lg font-medium mb-2">Enter your email</h3>
+              <input
+                required
+                className="bg-gray-100 mb-4 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base"
+                type="email"
+                placeholder="email_name@gmail.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+    
+              <h3 className="text-lg font-medium mb-2">Enter Password</h3>
+              <input
+                required
+                className="bg-gray-100 mb-4 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+    
+              <h3 className="text-lg font-medium mb-2">Vehicle Information</h3>
+              <div className="flex gap-4 mb-4">
+                <input
+                  required
+                  className="bg-gray-100 w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base"
+                  type="text"
+                  placeholder="Vehicle Color"
+                  value={vehicleColor}
+                  onChange={(e) => setVehicleColor(e.target.value)}
+                />
+                <input
+                  required
+                  className="bg-gray-100 w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base"
+                  type="text"
+                  placeholder="Vehicle Plate"
+                  value={vehiclePlate}
+                  onChange={(e) => setVehiclePlate(e.target.value)}
+                />
+              </div>
+    
+              <div className="flex gap-4 mb-4">
+                <input
+                  required
+                  className="bg-gray-100 w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base"
+                  type="number"
+                  placeholder="Vehicle Capacity"
+                  value={vehicleCapacity}
+                  onChange={(e) => setVehicleCapacity(e.target.value)}
+                />
+                <select
+                  required
+                  className="bg-gray-100 w-1/2 rounded-lg px-4 py-2 border text-lg"
+                  value={vehicleType}
+                  onChange={(e) => setVehicleType(e.target.value)}
+                >
+                  <option value="" disabled>Select Vehicle Type</option>
+                  <option value="car">Car</option>
+                  <option value="auto">Auto</option>
+                  <option value="moto">Moto</option>
+                </select>
+              </div>
+    
+              <button
+                type="submit"
+                className="bg-black text-white font-semibold mb-4 rounded-lg px-4 py-2 w-full text-lg hover:bg-gray-800 transition duration-300"
+              >
+                Create Driver Account
+              </button>
+            </form>
+    
+            <p className="text-center">
+              Already have an account?{' '}
+              <Link to="/captain-login" className="text-blue-600">
+                Login here
+              </Link>
+            </p>
 
-        <form onSubmit={(e) => {
-          submitHandler(e)
-        }}>
-
-          <h3 className='text-lg w-full  font-medium mb-2'>What's our Captain's name</h3>
-          <div className='flex gap-4 mb-7'>
-            <input
-              required
-              className='bg-[#eeeeee] w-1/2 rounded-lg px-4 py-2 border  text-lg placeholder:text-base'
-              type="text"
-              placeholder='First name'
-              value={firstName}
-              onChange={(e) => {
-                setFirstName(e.target.value)
-              }}
-            />
-            <input
-              required
-              className='bg-[#eeeeee] w-1/2  rounded-lg px-4 py-2 border  text-lg placeholder:text-base'
-              type="text"
-              placeholder='Last name'
-              value={lastName}
-              onChange={(e) => {
-                setLastName(e.target.value)
-              }}
-            />
           </div>
-
-          <h3 className='text-lg font-medium mb-2'>What's our Captain's email</h3>
-          <input
-            required
-            value={email}
-            onChange={(e) => {
-              setEmail(e.target.value)
-            }}
-            className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
-            type="email"
-            placeholder='email@example.com'
-          />
-
-          <h3 className='text-lg font-medium mb-2'>Enter Password</h3>
-
-          <input
-            className='bg-[#eeeeee] mb-7 rounded-lg px-4 py-2 border w-full text-lg placeholder:text-base'
-            value={password}
-            onChange={(e) => {
-              setPassword(e.target.value)
-            }}
-            required type="password"
-            placeholder='password'
-          />
-
-          <h3 className='text-lg font-medium mb-2'>Vehicle Information</h3>
-          <div className='flex gap-4 mb-7'>
-            <input
-              required
-              className='bg-[#eeeeee] w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base'
-              type="text"
-              placeholder='Vehicle Color'
-              value={vehicleColor}
-              onChange={(e) => {
-                setVehicleColor(e.target.value)
-              }}
-            />
-            <input
-              required
-              className='bg-[#eeeeee] w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base'
-              type="text"
-              placeholder='Vehicle Plate'
-              value={vehiclePlate}
-              onChange={(e) => {
-                setVehiclePlate(e.target.value)
-              }}
-            />
-          </div>
-          <div className='flex gap-4 mb-7'>
-            <input
-              required
-              className='bg-[#eeeeee] w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base'
-              type="number"
-              placeholder='Vehicle Capacity'
-              value={vehicleCapacity}
-              onChange={(e) => {
-                setVehicleCapacity(e.target.value)
-              }}
-            />
-            <select
-              required
-              className='bg-[#eeeeee] w-1/2 rounded-lg px-4 py-2 border text-lg placeholder:text-base'
-              value={vehicleType}
-              onChange={(e) => {
-                setVehicleType(e.target.value)
-              }}
-            >
-              <option value="" disabled>Select Vehicle Type</option>
-              <option value="car">Car</option>
-              <option value="auto">Auto</option>
-              <option value="moto">Moto</option>
-            </select>
-          </div>
-
-          <button
-            className='bg-[#111] text-white font-semibold mb-3 rounded-lg px-4 py-2 w-full text-lg placeholder:text-base'
-          >Create Captain Account</button>
-
-        </form>
-        <p className='text-center'>Already have a account? <Link to='/captain-login' className='text-blue-600'>Login here</Link></p>
-      </div>
-      <div>
-        <p className='text-[10px] mt-6 leading-tight'>This site is protected by reCAPTCHA and the <span className='underline'>Google Privacy
-          Policy</span> and <span className='underline'>Terms of Service apply</span>.</p>
-      </div>
-    </div>
+        </div>
+     
+    
   )
 }
 
