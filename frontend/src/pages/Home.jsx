@@ -59,24 +59,22 @@ const Home = () => {
     })
 
 
-    const handlePickupChange = async (e) => {
-        setPickup(e.target.value)
-        try {
-            const response = await axios.get(`${import.meta.env.VITE_GOOGLE_MAPS_API}/maps/get-suggestions`, {
-                params: { input: e.target.value },
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`
-                }
-
-            })
-            
-            
-            
-            setPickupSuggestions(response.data)
-        } catch {
-            // handle error
-        }
-    }
+        const handlePickupChange = async (input) => {
+            try {
+                const response = await axios.get('https://maps.googleapis.com/maps/api/place/autocomplete/json', {
+                    params: {
+                        input: input,
+                        key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY, // Store your API key securely
+                        types: 'geocode' // Optional: Restrict results to addresses
+                    }
+                });
+        
+                console.log("Suggestions =>", response.data);
+                setPickupSuggestions(response.data.predictions); // Extract predictions from API response
+            } catch (error) {
+                console.error("Error fetching suggestions:", error);
+            }
+        };
 
     const handleDestinationChange = async (e) => {
         setDestination(e.target.value)
