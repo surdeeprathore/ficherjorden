@@ -15,8 +15,8 @@ import Riding from './pages/Riding'
 import CaptainRiding from './pages/CaptainRiding'
 import 'remixicon/fonts/remixicon.css'
 
-const App = () => {
 
+const App = () => {
   return (
     <div>
       <Routes>
@@ -28,11 +28,7 @@ const App = () => {
         <Route path='/signup' element={<UserSignup />} />
         <Route path='/captain-login' element={<Captainlogin />} />
         <Route path='/captain-signup' element={<CaptainSignup />} />
-        <Route path='/home'element={ 
-      //  <UserProtectWrapper>
-              <Home />
-            // </UserProtectWrapper>
-          } />
+        <Route path='/home' element={<Home />} />
         <Route path='/user/logout'
           element={<UserProtectWrapper>
             <UserLogout />
@@ -50,72 +46,11 @@ const App = () => {
           </CaptainProtectWrapper>
         } />
       </Routes>
-
-       
     </div>
   )
 }
 
 export default App
-
-
-// import React, { useState, useEffect } from 'react';
-// import { Route, Routes } from 'react-router-dom';
-// import Home from './pages/Home';
-// import UserLogin from './pages/UserLogin';
-// import UserSignup from './pages/UserSignup';
-// import Captainlogin from './pages/Captainlogin';
-// import CaptainSignup from './pages/CaptainSignup';
-// import Riding from './pages/Riding';
-// import CaptainRiding from './pages/CaptainRiding';
-// import UserLogout from './pages/UserLogout';
-// import CaptainHome from './pages/CaptainHome';
-// import CaptainLogout from './pages/CaptainLogout';
-// import UserProtectWrapper from './pages/UserProtectWrapper';
-// import CaptainProtectWrapper from './pages/CaptainProtectWrapper';
-// import 'remixicon/fonts/remixicon.css';
-
-// const App = () => {
-//   const [darkMode, setDarkMode] = useState(
-//     localStorage.getItem('theme') === 'dark'
-//   );
-
-//   useEffect(() => {
-//     if (darkMode) {
-//       document.documentElement.classList.add('dark');
-//       localStorage.setItem('theme', 'dark');
-//     } else {
-//       document.documentElement.classList.remove('dark');
-//       localStorage.setItem('theme', 'light');
-//     }
-//   }, [darkMode]);
-
-//   return (
-//     <div className={darkMode ? 'dark bg-gray-900 text-white' : 'bg-white text-black'}>
-//       <Routes>
-//         <Route path='/login' element={<UserLogin />} />
-//         <Route path='/riding' element={<Riding />} />
-//         <Route path='/captain-riding' element={<CaptainRiding />} />
-//         <Route path='/signup' element={<UserSignup />} />
-//         <Route path='/captain-login' element={<Captainlogin />} />
-//         <Route path='/captain-signup' element={<CaptainSignup />} />
-//         <Route path='/' element={<Home />} />
-//         <Route path='/user/logout' element={<UserProtectWrapper><UserLogout /></UserProtectWrapper>} />
-//         <Route path='/captain-home' element={<CaptainProtectWrapper><CaptainHome /></CaptainProtectWrapper>} />
-//         <Route path='/captain/logout' element={<CaptainProtectWrapper><CaptainLogout /></CaptainProtectWrapper>} />
-//       </Routes>
-
-//       {/* Dark Mode Toggle Button */}
-//       <button 
-//         onClick={() => setDarkMode(!darkMode)} 
-//         className='fixed bottom-5 right-5 bg-gray-800 text-white p-3 rounded-full shadow-lg hover:bg-gray-600 transition-all'>
-//         {darkMode ? <i className='ri-sun-line text-xl'></i> : <i className='ri-moon-line text-xl'></i>}
-//       </button>
-//     </div>
-//   );
-// };
-
-// export default App;
 
 
 // // Import the functions you need from the SDKs you need

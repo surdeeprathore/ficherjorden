@@ -62,13 +62,16 @@ const Home = () => {
     const handlePickupChange = async (e) => {
         setPickup(e.target.value)
         try {
-            const response = await axios.get(`${import.meta.env.GOOGLE_MAPS_API}/maps/get-suggestions`, {
+            const response = await axios.get(`${import.meta.env.VITE_GOOGLE_MAPS_API}/maps/get-suggestions`, {
                 params: { input: e.target.value },
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
 
             })
+            
+            
+            
             setPickupSuggestions(response.data)
         } catch {
             // handle error
@@ -78,12 +81,14 @@ const Home = () => {
     const handleDestinationChange = async (e) => {
         setDestination(e.target.value)
         try {
-            const response = await axios.get(`${import.meta.env.GOOGLE_MAPS_API}/maps/get-suggestions`, {
+            const response = await axios.get(`${import.meta.env.VITE_GOOGLE_MAPS_API}/maps/get-suggestions`, {
                 params: { input: e.target.value },
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`
                 }
             })
+           
+            
             setDestinationSuggestions(response.data)
         } catch {
             // handle error
@@ -170,12 +175,14 @@ const Home = () => {
         setVehiclePanel(true)
         setPanelOpen(false)
 
-        const response = await axios.get(`${import.meta.env.GOOGLE_MAPS_API}/rides/get-fare`, {
+        const response = await axios.get(`${import.meta.env.VITE_GOOGLE_MAPS_API}/rides/get-fare`, {
             params: { pickup, destination },
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
             }
         })
+        
+        
 
 
         setFare(response.data)
@@ -184,7 +191,7 @@ const Home = () => {
     }
 
     async function createRide() {
-        const response = await axios.post(`${import.meta.env.GOOGLE_MAPS_API}/rides/create`, {
+        const response = await axios.post(`${import.meta.env.VITE_GOOGLE_MAPS_API}/rides/create`, {
             pickup,
             destination,
             vehicleType
@@ -199,13 +206,13 @@ const Home = () => {
 
     return (
         <div className='h-screen relative overflow-hidden'>
-            <img className='w-16 absolute left-5 top-5' src="" alt="" />
+            
             <div className='h-screen w-screen'>
                 {/* image for temporary use  */}
                 <LiveTracking />
             </div>
             <div className=' flex flex-col justify-end h-screen absolute top-0 w-full'>
-                <div className='h-[30%] p-6 bg-white relative'>
+                <div className='min-h-[30%] p-6 bg-white relative'>
                     <h5 ref={panelCloseRef} onClick={() => {
                         setPanelOpen(false)
                     }} className='absolute opacity-0 right-6 top-6 text-2xl'>
@@ -239,10 +246,10 @@ const Home = () => {
                             placeholder='Enter your destination' />
                     </form>
                     <button
-                        onClick={findTrip}
-                        className='bg-black text-white px-4 py-2 rounded-lg mt-3 w-full'>
-                        Find Trip
-                    </button>
+    onClick={findTrip}
+    className='bg-black text-white px-4 py-2 rounded-lg w-full'>
+    Find Trip
+</button>
                 </div>
                 <div ref={panelRef} className='bg-white h-0'>
                     <LocationSearchPanel
