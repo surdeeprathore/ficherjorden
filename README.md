@@ -34,5 +34,5 @@ This project allows users to search locations, calculate routes, and book rides 
 
 ### 1️⃣ Clone the repository
 ```bash
-git clone https://github.com/your-username/ride-booking-app.git
+(https://github.com/surdeeprathore/ficherjorden.git)
 cd ride-booking-app
